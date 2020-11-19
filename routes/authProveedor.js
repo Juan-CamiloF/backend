@@ -14,4 +14,5 @@ router.post("/" , async(req,res)=>{
     const jwToken =  proveedor.generateJWT();
     res.status(200).send({jwToken});
 });
+//Export
 module.exports = router;

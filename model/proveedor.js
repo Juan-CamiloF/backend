@@ -2,6 +2,7 @@
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 //Modulos internos
+//Esquema
 const esquemaProveedor = new mongoose.Schema({
 	nombres: String,
 	apellidos: String,
@@ -12,6 +13,7 @@ const esquemaProveedor = new mongoose.Schema({
 	telefono: String,
 	pass: String,
 });
+//Jwt
 esquemaProveedor.methods.generateJWT= function(){
 	return jwt.sign({
 		_id:this._id,
@@ -20,5 +22,6 @@ esquemaProveedor.methods.generateJWT= function(){
 		correo: this.correo,
 	},"LaVerduleria");
 };
+//Exports
 const Proveedor = mongoose.model('proveedor',esquemaProveedor);
 module.exports.Proveedor =  Proveedor;
