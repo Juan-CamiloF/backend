@@ -1,4 +1,4 @@
-//importar modulo de node
+//Modulo interno
 const jwt = require("jsonwebtoken");
 //validación para identificar el usuario loggeado y sus procesos
 function authProveedor(req, res, next) {

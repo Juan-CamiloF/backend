@@ -2,8 +2,9 @@ const express = require("express");
 const router = express.Router();
 
 const {Proveedor} =require ("../model/proveedor");
+const authProveedor = require("../middleware/authProveedor");
 
-
+//Registrar proveedor
 router.post("/", async(req,res)=>{
     let proveedor = await Proveedor.findOne({ correo: req.body.correo });
 
@@ -27,6 +28,11 @@ router.post("/", async(req,res)=>{
     const jwToken = proveedor.generateJWT();
     res.status(200).send({ jwToken });
 });
-//exports
-
+//Perfil del proveedor
+router.get("/perfil",authProveedor, async(req,res)=>{
+    const proveedor = await Proveedor.findById(req.proveedor._id);
+    if(!proveedor) return res.status(400).send("El proveedor no existe");
+    res.send(proveedor);
+  });
+//Export
 module.exports = router;

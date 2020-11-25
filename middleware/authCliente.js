@@ -1,6 +1,6 @@
-//importar modulo de node
+//Modulo internos
 const jwt = require("jsonwebtoken");
-//validación para identificar el usuario loggeado y sus procesos
+//Validación para identificar el usuario loggeado y sus procesos
 function authCliente(req, res, next) {
     let jwToken = req.header("Authorization");
     console.log('este es el token de auth ---------------------------------------', jwToken)

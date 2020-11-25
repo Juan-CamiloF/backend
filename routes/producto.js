@@ -70,7 +70,6 @@ router.delete("/:_id", authProveedor, async (req, res) => {
   //Si no existe el proveedor
   if (!proveedor) res.status(400).send("El proveedor no existe");
   //SI existe
-  console.log(req.params._id)
   const producto = await Producto.findOneAndDelete(req.params._id);
   //Si no existe el producto
   if (!producto) res.status(400).send("No existe ese producto");
