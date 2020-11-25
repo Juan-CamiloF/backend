@@ -20,6 +20,7 @@ router.post("/", async(req,res)=>{
         direccion: req.body.direccion,
         telefono: req.body.telefono,
         pass: req.body.pass,
+        rol: req.body.rol
     });
      //Se guarda el usuario que se crea con el JWT
     const resul = await proveedor.save();

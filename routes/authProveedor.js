@@ -12,6 +12,13 @@ router.post("/" , async(req,res)=>{
     if(proveedor.pass !== req.body.pass) return res.status(400).send("Correo o contraseña incorrectos");
 
     const jwToken =  proveedor.generateJWT();
-    res.status(200).send({jwToken});
+    res.status(200).send({
+        jwToken, 
+        infoUsuario: {
+            nombre: `${proveedor.nombres} ${proveedor.apellidos}`, 
+            correo: proveedor.correo, 
+            rol: proveedor.rol
+        }
+    });
 });
 module.exports = router;

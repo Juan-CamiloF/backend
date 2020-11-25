@@ -20,7 +20,7 @@ app.use("/api/authProveedor", authProveedor);
 app.use("/api/producto", producto);
 
 //puerto para ejecutar el srvr
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3003;
 app.listen(port, () => console.log("Ejecutando en el puerto:" + port));
 //conexion a mongoDB
 mongoose.connect("mongodb://localhost/laVerduleria",{

@@ -11,6 +11,10 @@ const esquemaProveedor = new mongoose.Schema({
 	direccion: String,
 	telefono: String,
 	pass: String,
+	rol:{
+        type:String,
+        default: "proveedor",
+    }
 });
 esquemaProveedor.methods.generateJWT= function(){
 	return jwt.sign({

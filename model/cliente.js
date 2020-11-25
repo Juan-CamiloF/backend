@@ -9,7 +9,7 @@ const esquemaCliente = new mongoose.Schema({
     pass: String,
     rol:{
         type:String,
-        default: "Cliente",
+        default: "cliente",
     }
 });
 esquemaCliente.methods.generateJWT= function(){

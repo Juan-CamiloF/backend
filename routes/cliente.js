@@ -15,6 +15,7 @@ router.post("/", async (req,res)=>{
 		apellidos: req.body.apellidos,
 		correo: req.body.correo,
 		pass: req.body.pass,
+		rol: req.body.rol
 	});
 	const result = await cliente.save();
 	const jwtoken = cliente.generateJWT();
